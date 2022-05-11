@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en"> 
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de registro</title>
+    <link rel="stylesheet" href="estilos.css">
+
+</head>
+<body>
+
+        <form action="correo.php" method="post" id="form"> <!--start of the form, introducing the post method to later pass it to the backend, 
+            in addition to that, it has an ID to be able to identify it in the javascript file-->
+        <div class="form"> <!--The entire structure of the document is found in the form class, the method used is called, 
+            "adjacent subjects", that is, from the form class, which is the parent, its children descend and are identified with the "group" class.-->
+            <h1>Registro</h1><!--Main tittle-->
+            <!--Each "Brother" is made up of an "input" which is where the information is received, 
+                it also has an "ID" to be able to be identified in JavaScript, in addition to this, 
+                it has a "required" attribute, that is, this field it is absolutely necessary for the form to be sent-->
+            <!--as part of the layout, there is a "span" that contains a slash in each input to be able to do magic in CSS-->
+            <div class="grupo">  
+                <input type="email"  id="correoIns" name="email" required >
+                <span class="barra"></span>
+                <label for="">Correo institucional</label>
+            </div>
+            
+            <div class="grupo">
+               
+                <input type="text" id="idempleado" name="idempleado" required pattern="[0-9]+" >
+                <span class="barra"></span>
+                <label for="">Número de empleado</label>
+            </div>
+
+            <div class="grupo">
+                <input type="text" name="nombre" id="name" required>
+                <span class="barra"></span>
+                <label for="">Nombre</label>
+            </div>
+
+            <div class="grupo">
+                <input type="text" name="apellidoPat" id="apellidoPat" required>
+                <span class="barra"></span>
+                <label for="">Apellido Paterno</label>
+            </div>
+
+            <div class="grupo">
+                <input type="text" name="apellidoMat" id="apellidoMat">
+                <span class="barra"></span>
+                <label for="">Apellido Materno</label>
+            </div>
+
+           <!--In this section we make the selection of the institute through a "select-option", 
+            giving us the opportunity to have a drop-down menu where all the Institutes of the UAEH-->
+            <div class="grupo"> 
+                
+               <div class="form">
+                <br><br><br>
+                <label for="instituto" class="form__label">Instituto</label> 
+                <span class=""></span>  
+                   <!--<div class="input-group" required> --> 
+                            <select name="institut" class="form__input"  id="institut" required  > 
+                                
+                                <option value="" >Selecciona tu Instituto de procedencia</option> 
+                                    
+                                    <option  value="Instituto de artes ">Instituto de Artes</option>
+                                    <option  value="Instituto de Ciencias Agropecuarias ">Instituto de Ciencias Agropecuarias</option> 
+                                    <option  value="Instituto de Ciencias Básicas e Ingeniería">Instituto de Ciencias Básicas e Ingeniería </option>
+                                    <option  value="Instituto de Ciencias Économico Administrativas ">Instituto de Ciencias Économico Administrativas</option> 
+                                    <option value="Instituto de Ciencias de la Salud"> Instituto de Ciencias de la Salud</option>
+                                    <option  value="Instituto de Ciencias Sociales y Humanidades ">Instituto de Ciencias Sociales y Humanidades</option>
+                        
+                                <option disabled="" >Escuela Superior</option> 
+                                    <option value="Actopan">Actopan</option>
+                                    <option value="Apan">Apan</option>
+                                    <option value="Atoronilco de Tula">Atoronilco de Tula</option>
+                                    <option value="Cd. Sahagun">Cd. Sahagun</option>
+                                    <option value="Huejutla">Huejutla</option>
+                                    <option value="Tepeji del Río">Tepeji del Río</option>
+                                    <option value="Tlahuelilpan">Tlahuelilpan</option>
+                                    <option value="Tizayuca">Tizayuca</option>
+                                    <option value="Zimapán ">Zimapán</option>
+                                 
+                                <option disabled="" >Escuela Preparatoria</option> 
+                                    <option value="Preparatoria 1">Preparatoria N°1</option>
+                                    <option value="Preparatoria 2">Preparatoria N°2</option>
+                                    <option value="Preparatoria 3">Preparatoria N°3</option>
+                                    <option value="Preparatoria 4">Preparatoria N°4</option>
+                                    <option value="Preparatoria 7">Preparatoria N°7</option>
+                                    <option value="Preparatoria Ixtlahuaco">Preparatoria Ixtlahuaco</option>
+                                    <option value="Preparatoria Tlaxcoapan">Preparatoria Tlaxcoapan</option>
+            
+                             </select> 
+                             
+                             
+                   <!--</div> --> 
+                    
+                </div> 
+                
+            </div>
+            <!--Last but not least, there is the section to select the date and time for the exam application,
+                Contains a label where it is described what the user has to do
+                 -->
+            <div class="grupo">
+                <label for="date" class="form__label">Selecciona la fecha y hora para la aplicación del examen </label><br><br><br><br><br>   
+                <input type="datetime-local" name="date" id="date"  min="2022-06-01" max="2026-08-31"  required> <!-- Este ya se encuentra validado-->
+                <!--In addition to this, it contains a "local date-time" 
+                    type input which allows us to select the exact date and time for the application of the exam, 
+                    for layout issues it contains a "required" so that the form cannot be sent without first selecting the date, 
+                    it has a date limit that is 2022-06-01 and a maximum that is 2026-08-31 for pure layout purposes-->
+               
+            </div>
+
+
+
+            <input type="submit" value="Enviar" class="form__cta">
+            <!--<<button type="submit">Enviar</button> >-->
+
+            <!--<p class="warings" id="warnings"></p>>-->  
+
+            <input type="reset" value="Limpiar" class="form__cta">
+            <!--<button type="reset">Limpiar</button>-->
+
+
+
+
+
+
+
+         </div>
+
+
+
+
+
+           
+
+
+      
+        </form>
+
+
+        <script src="validaciones.js"></script>
+        <!-- Compiled and minified JavaScript -->
+
+
+    
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
